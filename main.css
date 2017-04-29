@@ -1,0 +1,22 @@
+*,
+*::before,
+*::after,{
+  box-sizing: border-box;
+}
+
+#outside{
+background-color: black;
+width: 600px;
+height: 600px;
+position: relative;
+display: inline-block;
+}
+
+#outside > div {
+  background-color: yellow;
+  width: 180px;
+  height: 180px;
+  margin-left: 11px;
+  margin-top: 11px;
+  display: inline-block;
+}

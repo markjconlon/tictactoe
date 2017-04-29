@@ -63,7 +63,7 @@ $(function(){
     }else if ($('#tr').hasClass('y') && $('#mm').hasClass('y') && $('#bl').hasClass('y')) {
       window.alert('Y is the winner');
       yWin = true;
-
+    //tie condition
     }else if (count === 9 && !(xWin || yWin)) {
       window.alert('It is a draw folks!')
     }

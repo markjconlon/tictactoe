@@ -1,12 +1,13 @@
 $(function(){
   var count = 0;
   $('#outside > div').click(function(){
-    if (count % 2 === 0){
+    if (count % 2 === 0 && !($(this).hasClass('x') || $(this).hasClass('o'))){
       $(this).addClass('x');
-    } else{
-      $(this).addClass('o');
+      count += 1;
+    } else if (!($(this).hasClass('x') || $(this).hasClass('o'))){
+        $(this).addClass('o');
+        count += 1;
     }
-    count += 1;
 
     //all 8 x win conditions
     if ($('#tl').hasClass('x') && $('#tm').hasClass('x') && $('#tr').hasClass('x')) {

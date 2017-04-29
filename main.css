@@ -5,7 +5,7 @@
 }
 
 #outside{
-background-color: black;
+background-color: blue;
 width: 600px;
 height: 600px;
 position: relative;
@@ -19,4 +19,12 @@ display: inline-block;
   margin-left: 11px;
   margin-top: 11px;
   display: inline-block;
+}
+.x{
+  background-image: url(http://www.icone-png.com/png/45/45292.png);
+  background-size: cover;
+}
+.o{
+  background-image: url(http://icons.webpatashala.com/Icons/Icons8-Metro-Style-Icons/Png/O-512-icon-201310542.PNG);
+  background-size: cover;
 }

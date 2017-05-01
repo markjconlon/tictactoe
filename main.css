@@ -1,23 +1,82 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*My CSS*/
 *,
 *::before,
 *::after,{
   box-sizing: border-box;
 }
+html{
+  font-size: 16px;
+  font-family: Verdana, sans-serif;
+  color: darkgrey;
+}
+
+h1{
+  font-size: 2em;
+}
 
 #outside{
 background-color: blue;
-width: 600px;
-height: 600px;
+width: 90vmin;
+height: 90vmin;
 position: relative;
 display: inline-block;
 }
 
 #outside > div {
   background-color: yellow;
-  width: 180px;
-  height: 180px;
-  margin-left: 11px;
-  margin-top: 11px;
+  width: 30%;
+  height: 30%;
+  margin-left: 2%;
+  margin-top: 2%;
   display: inline-block;
 }
 .x{
@@ -27,4 +86,25 @@ display: inline-block;
 .o{
   background-image: url(http://icons.webpatashala.com/Icons/Icons8-Metro-Style-Icons/Png/O-512-icon-201310542.PNG);
   background-size: cover;
+}
+
+@media screen and (aspect-ratio: 16/9) {
+  #outside{
+  background-color: blue;
+  width: 50vw;
+  height: 50vw;
+  position: relative;
+  display: inline-block;
+  }
+}
+@media screen and (aspect-ratio: 9/16) {
+  #outside{
+  background-color: blue;
+  width: 90vw;
+  height: 90vw;
+  position: absolute;
+  display: inline-block;
+  margin-left: 5vw;
+  bottom: 5vw;
+  }
 }

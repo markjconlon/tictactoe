@@ -1,7 +1,7 @@
 $(function(){
   var count = 0;
   var xWin = false;
-  var yWin = false;
+  var oWin = false;
 
   $('#outside > div').click(function(){
     if (count % 2 === 0 && !($(this).hasClass('x') || $(this).hasClass('o'))){
@@ -37,34 +37,31 @@ $(function(){
     }else if ($('#tr').hasClass('x') && $('#mm').hasClass('x') && $('#bl').hasClass('x')) {
       window.alert('X is the winner');
       xWin = true;
-
-
-    }else if ($('#tl').hasClass('y') && $('#tm').hasClass('y') && $('#tr').hasClass('y')) {
-      window.alert('Y is the winner');
-      yWin = true;
-    }else if ($('#ml').hasClass('y') && $('#mm').hasClass('y') && $('#mr').hasClass('y')) {
-      window.alert('Y is the winner');
-      yWin = true;
-    }else if ($('#bl').hasClass('y') && $('#bm').hasClass('y') && $('#br').hasClass('y')) {
-      window.alert('Y is the winner');
-      yWin = true;
-    }else if ($('#tl').hasClass('y') && $('#ml').hasClass('y') && $('#bl').hasClass('y')) {
-      window.alert('Y is the winner');
-      yWin = true;
-    }else if ($('#tm').hasClass('y') && $('#mm').hasClass('y') && $('#bm').hasClass('y')) {
-      window.alert('Y is the winner');
-      yWin = true;
-    }else if ($('#tr').hasClass('y') && $('#mr').hasClass('y') && $('#br').hasClass('y')) {
-      window.alert('Y is the winner');
-      yWin = true;
-    }else if ($('#tl').hasClass('y') && $('#mm').hasClass('y') && $('#br').hasClass('y')) {
-      window.alert('Y is the winner');
-      yWin = true;
-    }else if ($('#tr').hasClass('y') && $('#mm').hasClass('y') && $('#bl').hasClass('y')) {
-      window.alert('Y is the winner');
-      yWin = true;
-    //tie condition
-    }else if (count === 9 && !(xWin || yWin)) {
+    }else if ($('#tl').hasClass('o') && $('#tm').hasClass('o') && $('#tr').hasClass('o')) {
+      window.alert('O is the winner');
+      oWin = true;
+    }else if ($('#ml').hasClass('o') && $('#mm').hasClass('o') && $('#mr').hasClass('o')) {
+      window.alert('O is the winner');
+      oWin = true;
+    }else if ($('#bl').hasClass('o') && $('#bm').hasClass('o') && $('#br').hasClass('o')) {
+      window.alert('O is the winner');
+      oWin = true;
+    }else if ($('#tl').hasClass('o') && $('#ml').hasClass('o') && $('#bl').hasClass('o')) {
+      window.alert('O is the winner');
+      oWin = true;
+    }else if ($('#tm').hasClass('o') && $('#mm').hasClass('o') && $('#bm').hasClass('o')) {
+      window.alert('O is the winner');
+      oWin = true;
+    }else if ($('#tr').hasClass('o') && $('#mr').hasClass('o') && $('#br').hasClass('o')) {
+      window.alert('O is the winner');
+      oWin = true;
+    }else if ($('#tl').hasClass('o') && $('#mm').hasClass('o') && $('#br').hasClass('o')) {
+      window.alert('O is the winner');
+      oWin = true;
+    }else if ($('#tr').hasClass('o') && $('#mm').hasClass('o') && $('#bl').hasClass('o')) {
+      window.alert('O is the winner');
+      oWin = true;
+    }else if (count === 9 && !(xWin || oWin)) {
       window.alert('It is a draw folks!')
     }
   });

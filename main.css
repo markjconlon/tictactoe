@@ -69,6 +69,11 @@ h3{
   margin: 0.5em;
   text-align: center;
 }
+p{
+  font-size: 1.5em;
+  margin: 0.2em;
+  text-align: center;
+}
 
 #outside{
 background-color: blue;

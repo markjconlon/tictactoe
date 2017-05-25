@@ -78,7 +78,9 @@ $(function(){
       $('#outside > div').removeClass();
       count = 0;
       oWin = false;
+    } else if (count === 9) {
+      $('#outside > div').removeClass();
+      count = 0;
     }
-
   });
 });

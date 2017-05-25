@@ -2,6 +2,8 @@ $(function(){
   var count = 0;
   var xWin = false;
   var yWin = false;
+  var xCount = 0;
+  var yCount = 0;
 
   $('#outside > div').click(function(){
     if (count % 2 === 0 && !($(this).hasClass('x') || $(this).hasClass('o'))){
@@ -67,5 +69,19 @@ $(function(){
     }else if (count === 9 && !(xWin || yWin)) {
       window.alert('It is a draw folks!')
     }
+    if (xWin) {
+      xCount += 1;
+      $('#numXWins').html(' ' + xCount);
+      $('#outside > div').removeClass();
+      count = 0;
+      xWin = false;
+    } else if (yWin){
+      yCount += 1;
+      $('#numYWins').html(' ' + yCount);
+      $('#outside > div').removeClass();
+      count = 0;
+      yWin = false;
+    }
+
   });
 });

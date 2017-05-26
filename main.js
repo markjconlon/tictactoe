@@ -99,7 +99,6 @@ $(function(){
     }
   });
 
-
   function computerMove(gameBoard, gameBoardId, count){
     // check for win condition from ttt.js
     let coords = []

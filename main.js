@@ -4,11 +4,15 @@ $(function(){
   var oWin = false;
   var xCount = 0;
   var oCount = 0;
+  var gameBoard = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
   $('#outside > div').click(function(){
     if (count % 2 === 0 && !($(this).hasClass('x') || $(this).hasClass('o'))){
       $(this).addClass('x');
+      gameBoard[$(this).attr('value')[0]][$(this).attr('value')[1]] = 1;
       count += 1;
+      console.log(gameBoard);
+      computerMove();
     } else if (!($(this).hasClass('x') || $(this).hasClass('o'))){
         $(this).addClass('o');
         count += 1;
@@ -83,4 +87,13 @@ $(function(){
       count = 0;
     }
   });
+  function computerMove(){
+    if (gameBoard[1][1] === 0) {
+      gameBoard[1][1] = -1
+      $('#mm').trigger("click");
+    }
+  }
+  // function checkWin(){
+  //   gameBoard.
+  // }
 });

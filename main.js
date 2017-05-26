@@ -8,6 +8,7 @@ $(function(){
   var gameBoard = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
   var gameBoardId = [["tl","tm","tr"], ["ml","mm","mr"], ["bl","bm","br"]]
 
+  // listen for the players first click and then the fun begins
   $('#outside > div').click(function(){
     if (count % 2 === 0 && !($(this).hasClass('x') || $(this).hasClass('o'))){
       $(this).addClass('x');
@@ -22,7 +23,7 @@ $(function(){
         count += 1;
     }
 
-    //all 8 x win conditions followed by all 8 o win conditions
+    //all 8 x win conditions followed by all 8 o win conditions followed by the draw condition
     if ($('#tl').hasClass('x') && $('#tm').hasClass('x') && $('#tr').hasClass('x')) {
         window.alert('X is the winner');
         xWin = true;
@@ -74,6 +75,7 @@ $(function(){
     }else if (count === 9 && !(xWin || oWin)) {
       window.alert('It is a draw folks!')
     }
+    // after win lose or draw the classes x or o, are removed and all relevant counters are reset
     if (xWin) {
       xCount += 1;
       $('#numXWins').html(' ' + xCount);
@@ -99,8 +101,12 @@ $(function(){
 
 
   function computerMove(gameBoard, gameBoardId, count){
-    // check for win from ttt.js
+    // check for win condition from ttt.js
     let coords = []
+    // basically from here to the comment make move we are checking if there are any xx or oo patterns that need to be dealt with
+    // if its oo then the computer will complete and win otherwise the computer is preventing the player from winning
+    //that position to deal with the condition is set in coords
+    //this for loop and if statement checks rows
     for (var i = 0; i < gameBoard.length; i++) {
       var rowSum = 0;
       for (var j = 0; j < gameBoard.length; j++) {
@@ -117,6 +123,7 @@ $(function(){
         }
       }
     }
+    //this for loop and if statement checks columns
     for (var k = 0; k < gameBoard.length; k++) {
       var colSum = 0;
       for (var l = 0; l < gameBoard.length; l++) {
@@ -133,6 +140,7 @@ $(function(){
         coords.push(k)
       }
     }
+    //this checks the outliers (being the two diagonal cases)
     if ((gameBoard[0][0] + gameBoard[1][1] + gameBoard[2][2]) === 2 || (gameBoard[0][0] + gameBoard[1][1] + gameBoard[2][2]) === -2) {
       if (gameBoard[0][0] === gameBoard[1][1]) {
         coords.push(2,2);
@@ -177,6 +185,8 @@ $(function(){
         }else if ((gameBoard[2][0] === 0) && (gameBoard[2][0] === 0)) {
           console.log('178');
           $('#bl').trigger("click");
+          // if all other options above arent met then it doesn't matter where the play is so we loop through
+          // every spot from top left to bottom right check if its available and then play it and then break out of the loop
         }else {
           console.log("OIFBWONF");
           var firstLetter = ["t", "m", "b"]

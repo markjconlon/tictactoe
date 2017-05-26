@@ -24,57 +24,52 @@ $(function(){
     }
 
     //all 8 x win conditions followed by all 8 o win conditions followed by the draw condition
-    if ($('#tl').hasClass('x') && $('#tm').hasClass('x') && $('#tr').hasClass('x')) {
+    for (var i = 0; i < gameBoard.length; i++) {
+    var rowSum = 0;
+    for (var j = 0; j < gameBoard.length; j++) {
+      rowSum += gameBoard[i][j];
+    }
+    if (rowSum === 3) {
+      window.alert('X is the winner');
+      xWin = true;
+    } else if (rowSum === -3) {
+      window.alert('O is the winner');
+      oWin = true;
+    }
+  }
+
+  for (var k = 0; k < gameBoard.length; k++) {
+    var colSum = 0;
+    for (var l = 0; l < gameBoard.length; l++) {
+      colSum += gameBoard[l][k];
+    }
+    if (colSum === 3) {
+      window.alert('X is the winner');
+      xWin = true;
+    } else if (colSum === -3) {
+      window.alert('O is the winner');
+      oWin = true;
+    }
+  }
+  if ((gameBoard[0][0] + gameBoard[1][1] + gameBoard[2][2]) === 3 || (gameBoard[0][0] + gameBoard[1][1] + gameBoard[2][2]) === -3) {
+    if ((gameBoard[0][0] + gameBoard[1][1] + gameBoard[2][2]) === 3) {
+      window.alert('X is the winner');
+      xWin = true;
+    } else {
+      window.alert('O is the winner');
+      oWin = true;
+    }
+  } else if ((gameBoard[2][0] + gameBoard[1][1] + gameBoard[0][2]) === 3 || (gameBoard[2][0] + gameBoard[1][1] + gameBoard[0][2]) === -3){
+      if ((gameBoard[2][0] + gameBoard[1][1] + gameBoard[0][2]) === 3) {
         window.alert('X is the winner');
         xWin = true;
-    }else if ($('#ml').hasClass('x') && $('#mm').hasClass('x') && $('#mr').hasClass('x')) {
-      window.alert('X is the winner');
-      xWin = true;
-    }else if ($('#bl').hasClass('x') && $('#bm').hasClass('x') && $('#br').hasClass('x')) {
-      window.alert('X is the winner');
-      xWin = true;
-    }else if ($('#tl').hasClass('x') && $('#ml').hasClass('x') && $('#bl').hasClass('x')) {
-      window.alert('X is the winner');
-      xWin = true;
-    }else if ($('#tm').hasClass('x') && $('#mm').hasClass('x') && $('#bm').hasClass('x')) {
-      window.alert('X is the winner');
-      xWin = true;
-    }else if ($('#tr').hasClass('x') && $('#mr').hasClass('x') && $('#br').hasClass('x')) {
-      window.alert('X is the winner');
-      xWin = true;
-    }else if ($('#tl').hasClass('x') && $('#mm').hasClass('x') && $('#br').hasClass('x')) {
-      window.alert('X is the winner');
-      xWin = true;
-    }else if ($('#tr').hasClass('x') && $('#mm').hasClass('x') && $('#bl').hasClass('x')) {
-      window.alert('X is the winner');
-      xWin = true;
-    }else if ($('#tl').hasClass('o') && $('#tm').hasClass('o') && $('#tr').hasClass('o')) {
-      window.alert('O is the winner');
-      oWin = true;
-    }else if ($('#ml').hasClass('o') && $('#mm').hasClass('o') && $('#mr').hasClass('o')) {
-      window.alert('O is the winner');
-      oWin = true;
-    }else if ($('#bl').hasClass('o') && $('#bm').hasClass('o') && $('#br').hasClass('o')) {
-      window.alert('O is the winner');
-      oWin = true;
-    }else if ($('#tl').hasClass('o') && $('#ml').hasClass('o') && $('#bl').hasClass('o')) {
-      window.alert('O is the winner');
-      oWin = true;
-    }else if ($('#tm').hasClass('o') && $('#mm').hasClass('o') && $('#bm').hasClass('o')) {
-      window.alert('O is the winner');
-      oWin = true;
-    }else if ($('#tr').hasClass('o') && $('#mr').hasClass('o') && $('#br').hasClass('o')) {
-      window.alert('O is the winner');
-      oWin = true;
-    }else if ($('#tl').hasClass('o') && $('#mm').hasClass('o') && $('#br').hasClass('o')) {
-      window.alert('O is the winner');
-      oWin = true;
-    }else if ($('#tr').hasClass('o') && $('#mm').hasClass('o') && $('#bl').hasClass('o')) {
-      window.alert('O is the winner');
-      oWin = true;
-    }else if (count === 9 && !(xWin || oWin)) {
-      window.alert('It is a draw folks!')
-    }
+      } else {
+        window.alert('O is the winner');
+        oWin = true;
+      }
+  } else if (count === 9){
+    window.alert('It is a draw folks!')
+  }
     // after win lose or draw the classes x or o, are removed and all relevant counters are reset
     if (xWin) {
       xCount += 1;

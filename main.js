@@ -158,11 +158,12 @@ $(function(){
       // if center is open take it
       if (gameBoard[1][1] === 0) {
         $('#mm').trigger("click");
-      // find a corner
+      // check diagonal corners
       } else if ((gameBoard[0][0] + gameBoard[2][2] === 2) && gameBoard [0][1] === 0) {
         $('#tm').trigger("click");
       } else if ((gameBoard[0][2] + gameBoard[2][0] === 2) && gameBoard [2][1] === 0) {
         $('#bm').trigger("click");
+      // take a corner
       }else if (gameBoard[1][1] != 0) {
         if (gameBoard[0][0] === 0 && (gameBoard[0][1]=== 1 || gameBoard[1][0] === 1)) {
           $('#tl').trigger("click");

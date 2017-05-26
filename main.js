@@ -98,7 +98,7 @@ $(function(){
   });
 
 
-  function computerMove(gameBoard, gameBoardId){
+  function computerMove(gameBoard, gameBoardId, count){
     // check for win from ttt.js
     let coords = []
     for (var i = 0; i < gameBoard.length; i++) {
@@ -164,30 +164,37 @@ $(function(){
       } else if ((gameBoard[0][2] + gameBoard[2][0] === 2) && gameBoard [2][1] === 0) {
         $('#bm').trigger("click");
       // take a corner
-      }else if (gameBoard[1][1] != 0) {
-        if (gameBoard[0][0] === 0 && (gameBoard[0][1]=== 1 || gameBoard[1][0] === 1)) {
+      } else if (gameBoard[1][1] != 0) {
+        if (gameBoard[0][0] === 0 && (gameBoard[0][1]=== 1 || gameBoard[1][0] === 1) && (gameBoard[0][0] === 0)) {
+          console.log('169');
           $('#tl').trigger("click");
-        } else if ((gameBoard[0][2] === 0) && (gameBoard[1][2]=== 1 || gameBoard[2][1] === 1)) {
+        }else if ((gameBoard[0][2] === 0) && (gameBoard[1][2]=== 1 || gameBoard[2][1] === 1) && (gameBoard[2][2] === 0)) {
+          console.log('172');
           $('#br').trigger("click");
-        }else if ((gameBoard[2][2] === 0)) {
+        }else if ((gameBoard[2][2] === 0) && (gameBoard[0][2] === 0)) {
+          console.log('175');
           $('#tr').trigger("click");
-        }else if ((gameBoard[2][0] === 0)) {
+        }else if ((gameBoard[2][0] === 0) && (gameBoard[2][0] === 0)) {
+          console.log('178');
           $('#bl').trigger("click");
-        }
-      }else if (true) {
-        console.log("OIFBWONF");
-        var firstLetter = ["t", "m", "b"]
-        console.log(firstLetter);
-        for (var s = 0; s < gameBoard.length; s++) {
-          if (gameBoard[s][0] === 0 ) {
-            console.log('last step');
-            $('#' + firstLetter[s] + 'l').trigger("click");
-          }else if (gameBoard[s][1]) {
-            console.log('last step');
-            $('#' + firstLetter[s] + 'm').trigger("click");
-          }else if (gameBoard[s][2]) {
-            console.log('last step');
-            $('#' + firstLetter[s] + 'r').trigger("click");
+        }else {
+          console.log("OIFBWONF");
+          var firstLetter = ["t", "m", "b"]
+          console.log(firstLetter);
+          for (var s = 0; s < gameBoard.length; s++) {
+            if (gameBoard[s][0] === 0 ) {
+              console.log('last step');
+              $('#' + firstLetter[s] + 'l').trigger("click");
+              break;
+            }else if (gameBoard[s][1] === 0) {
+              console.log('last step');
+              $('#' + firstLetter[s] + 'm').trigger("click");
+              break;
+            }else if (gameBoard[s][2] === 0) {
+              console.log('last step');
+              $('#' + firstLetter[s] + 'r').trigger("click");
+              break;
+            }
           }
         }
       }

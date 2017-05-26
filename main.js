@@ -103,7 +103,7 @@ $(function(){
   function computerMove(gameBoard, gameBoardId, count){
     // check for win condition from ttt.js
     let coords = []
-    // basically from here to the comment make move we are checking if there are any xx or oo patterns that need to be dealt with
+    // basically from here to the comment "make move" we are checking if there are any xx or oo patterns that need to be dealt with
     // if its oo then the computer will complete and win otherwise the computer is preventing the player from winning
     //that position to deal with the condition is set in coords
     //this for loop and if statement checks rows

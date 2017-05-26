@@ -188,8 +188,6 @@ $(function(){
           }else if (gameBoard[s][2]) {
             console.log('last step');
             $('#' + firstLetter[s] + 'r').trigger("click");
-          }else {
-            console.log('next row');
           }
         }
       }

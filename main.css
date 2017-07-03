@@ -76,7 +76,7 @@ p{
 }
 
 #outside{
-background-color: blue;
+background-color: steelblue;
 width: 80vmin;
 height: 80vmin;
 position: relative;
@@ -85,7 +85,7 @@ margin: auto;
 }
 
 #outside > div {
-  background-color: yellow;
+  background-color: whitesmoke;
   width: 30%;
   height: 30%;
   margin-left: 2%;

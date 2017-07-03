@@ -9,6 +9,23 @@ $(function(){
   var gameBoardId = [["tl","tm","tr"], ["ml","mm","mr"], ["bl","bm","br"]];
   var singlePlayer = true;
 
+  function xVictory(){
+    $('#gameResult').html("X WINS!");
+    $('#gameResult').removeClass("displayNone");
+    setTimeout(function(){
+      $('#gameResult').addClass("displayNone");
+    }, 1000)
+  }
+
+  function oVictory(){
+    $('#gameResult').html("O WINS!");
+    $('#gameResult').removeClass("displayNone");
+    setTimeout(function(){
+      $('#gameResult').addClass("displayNone");
+    }, 1000)
+  }
+
+// Switching between Singe and 2 Players
   $('#options > span').click(function(e){
     if ($('#single').hasClass('active') && count === 0) {
       singlePlayer = false;
@@ -49,10 +66,10 @@ $(function(){
       rowSum += gameBoard[i][j];
     }
     if (rowSum === 3) {
-      window.alert('X is the winner');
+      xVictory();
       xWin = true;
     } else if (rowSum === -3) {
-      window.alert('O is the winner');
+      oVictory();
       oWin = true;
     }
   }
@@ -63,31 +80,35 @@ $(function(){
       colSum += gameBoard[l][k];
     }
     if (colSum === 3) {
-      window.alert('X is the winner');
+      xVictory();
       xWin = true;
     } else if (colSum === -3) {
-      window.alert('O is the winner');
+      oVictory();
       oWin = true;
     }
   }
   if ((gameBoard[0][0] + gameBoard[1][1] + gameBoard[2][2]) === 3 || (gameBoard[0][0] + gameBoard[1][1] + gameBoard[2][2]) === -3) {
     if ((gameBoard[0][0] + gameBoard[1][1] + gameBoard[2][2]) === 3) {
-      window.alert('X is the winner');
+      xVictory();
       xWin = true;
     } else {
-      window.alert('O is the winner');
+      oVictory();
       oWin = true;
     }
   } else if ((gameBoard[2][0] + gameBoard[1][1] + gameBoard[0][2]) === 3 || (gameBoard[2][0] + gameBoard[1][1] + gameBoard[0][2]) === -3){
       if ((gameBoard[2][0] + gameBoard[1][1] + gameBoard[0][2]) === 3) {
-        window.alert('X is the winner');
+        xVictory();
         xWin = true;
       } else {
-        window.alert('O is the winner');
+        oVictory();
         oWin = true;
       }
   } else if (count === 9){
-    window.alert('It is a draw folks!')
+    $('#gameResult').html("DRAW");
+    $('#gameResult').removeClass("displayNone");
+    setTimeout(function(){
+      $('#gameResult').addClass("displayNone");
+    }, 2000);
   }
     // after win lose or draw the classes x or o, are removed and all relevant counters are reset
     if (xWin) {

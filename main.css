@@ -90,8 +90,8 @@ p{
 }
 
 #outside{
-width: 80vmin;
-height: 80vmin;
+width: 70vmin;
+height: 70vmin;
 position: relative;
 display: block;
 margin: auto;
@@ -117,8 +117,8 @@ margin: auto;
 @media screen and (aspect-ratio: 16/9) {
   #outside{
   background-color: blue;
-  width: 50vw;
-  height: 50vw;
+  width: 45vw;
+  height: 45vw;
   position: relative;
   display: inline-block;
   }
@@ -126,8 +126,8 @@ margin: auto;
 @media screen and (aspect-ratio: 9/16) {
   #outside{
   background-color: blue;
-  width: 90vw;
-  height: 90vw;
+  width: 80vw;
+  height: 80vw;
   position: absolute;
   display: inline-block;
   margin-left: 5vw;

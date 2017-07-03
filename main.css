@@ -79,7 +79,7 @@ p{
 .active{
 	background-color: steelblue;
 	color: whitesmoke;
-	padding: 2px;
+	padding: 5px;
 	border-radius: 5px;
 }
 .displayNone{
@@ -88,6 +88,10 @@ p{
 .options{
 	text-align: center;
 	padding: 10px;
+}
+.options > span{
+	border: 2px solid steelblue;
+	border-radius: 5px;
 }
 
 #outside{
@@ -100,6 +104,7 @@ margin: auto;
 
 #outside > div {
   background-color: steelblue;
+	border-radius: 10px;
   width: 30%;
   height: 30%;
   margin-left: 2%;

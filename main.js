@@ -5,8 +5,26 @@ $(function(){
   var xCount = 0;
   var oCount = 0;
   var draw = 0;
-  var gameBoard = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-  var gameBoardId = [["tl","tm","tr"], ["ml","mm","mr"], ["bl","bm","br"]]
+  var gameBoard = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+  var gameBoardId = [["tl","tm","tr"], ["ml","mm","mr"], ["bl","bm","br"]];
+  var singlePlayer = true;
+
+  $('#options > span').click(function(e){
+    if ($('#single').hasClass('active') && count === 0) {
+      singlePlayer = false;
+      $('#single').removeClass('active');
+      $('#twoPlayer').addClass('active');
+    } else if (count === 0) {
+        singlePlayer = true;
+        $('#single').addClass('active');
+        $('#twoPlayer').removeClass('active');
+    } else {
+      $('#gameWarning').removeClass('displayNone');
+      setTimeout( function(){
+        $('#gameWarning').addClass('displayNone');
+      }, 1500)
+    }
+  });
 
   // listen for the players first click and then the fun begins
   $('#outside > div').click(function(){
@@ -15,7 +33,9 @@ $(function(){
       gameBoard[$(this).attr('value')[0]][$(this).attr('value')[1]] = 1;
       count += 1;
       // computer player
-      computerMove(gameBoard, gameBoardId);
+      if (singlePlayer) {
+        computerMove(gameBoard, gameBoardId);
+      }
     } else if (!($(this).hasClass('x') || $(this).hasClass('o'))){
         $(this).addClass('o');
         gameBoard[$(this).attr('value')[0]][$(this).attr('value')[1]] = -1;

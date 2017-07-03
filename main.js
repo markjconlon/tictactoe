@@ -15,7 +15,6 @@ $(function(){
       gameBoard[$(this).attr('value')[0]][$(this).attr('value')[1]] = 1;
       count += 1;
       // computer player
-      console.log(gameBoard);
       computerMove(gameBoard, gameBoardId);
     } else if (!($(this).hasClass('x') || $(this).hasClass('o'))){
         $(this).addClass('o');
@@ -168,34 +167,25 @@ $(function(){
       // take a corner
       } else if (gameBoard[1][1] != 0) {
         if (gameBoard[0][0] === 0 && (gameBoard[0][1]=== 1 || gameBoard[1][0] === 1) && (gameBoard[0][0] === 0)) {
-          console.log('169');
           $('#tl').trigger("click");
         }else if ((gameBoard[0][2] === 0) && (gameBoard[1][2]=== 1 || gameBoard[2][1] === 1) && (gameBoard[2][2] === 0)) {
-          console.log('172');
           $('#br').trigger("click");
         }else if ((gameBoard[2][2] === 0) && (gameBoard[0][2] === 0)) {
-          console.log('175');
           $('#tr').trigger("click");
         }else if ((gameBoard[2][0] === 0) && (gameBoard[2][0] === 0)) {
-          console.log('178');
           $('#bl').trigger("click");
           // if all other options above arent met then it doesn't matter where the play is so we loop through
           // every spot from top left to bottom right check if its available and then play it and then break out of the loop
         }else {
-          console.log("OIFBWONF");
           var firstLetter = ["t", "m", "b"]
-          console.log(firstLetter);
           for (var s = 0; s < gameBoard.length; s++) {
             if (gameBoard[s][0] === 0 ) {
-              console.log('last step');
               $('#' + firstLetter[s] + 'l').trigger("click");
               break;
             }else if (gameBoard[s][1] === 0) {
-              console.log('last step');
               $('#' + firstLetter[s] + 'm').trigger("click");
               break;
             }else if (gameBoard[s][2] === 0) {
-              console.log('last step');
               $('#' + firstLetter[s] + 'r').trigger("click");
               break;
             }

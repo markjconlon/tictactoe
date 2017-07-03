@@ -66,13 +66,13 @@ h1{
   text-align: center;
 }
 h3{
-  font-size: 2em;
+  font-size: 1.5em;
   margin: 0.5em;
   text-align: center;
 	color: red;
 }
 p{
-  font-size: 1.5em;
+  font-size: 1.25em;
   margin: 0.2em;
   text-align: center;
 }
@@ -87,11 +87,15 @@ p{
 }
 .options{
 	text-align: center;
-	padding: 10px;
+	padding: 0.6em;
+	font-size: 2em;
 }
 .options > span{
 	border: 2px solid steelblue;
 	border-radius: 5px;
+}
+.options > span:hover{
+	cursor: pointer;, cursor: hand;
 }
 
 #outside{
